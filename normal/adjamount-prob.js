@@ -91,6 +91,9 @@ var task = (function() {
 
         if (trialCounter > 3) {
             // reset counters, makingChoice = false -> next delay
+            // final choice changes curImmAmount one last time
+            curImmAmount = curImmAmount + taskData.changeAmount[trialCounter];
+            console.log(curImmAmount);
 
             // immediate amount never selected on this trial
             if (immChoiceCount == 0) {
@@ -117,6 +120,10 @@ var task = (function() {
 
         if (trialCounter > 3) {
             // reset counters, makingChoice = false -> next delay
+            // final choice changes curImmAmount one last time
+            curImmAmount = curImmAmount - taskData.changeAmount[trialCounter];
+            console.log(curImmAmount);
+
             subjectData.delays.push(taskData.probVal[delayCounter].oddsAgainst);
             subjectData.indiffVals.push(curImmAmount);
             trialCounter = 0;

@@ -97,6 +97,9 @@ var task = (function() {
 
         if (trialCounter > 3) {
             // reset counters, makingChoice = false -> next delay
+            // final choice changes curImmAmount one last time
+            curImmAmount = curImmAmount + taskData.changeAmount[trialCounter];
+            console.log(curImmAmount);
 
             // immediate amount never selected on this trial
             if (immChoiceCount == 0) {
@@ -123,6 +126,10 @@ var task = (function() {
 
         if (trialCounter > 3) {
             // reset counters, makingChoice = false -> next delay
+            // final choice changes curImmAmount one last time
+            curImmAmount = curImmAmount - taskData.changeAmount[trialCounter];
+            console.log(curImmAmount);
+
             subjectData.delays.push(taskData.probVal[delayCounter].oddsAgainst);
             subjectData.indiffVals.push(curImmAmount);
             trialCounter = 0;
@@ -149,7 +156,7 @@ function showResults() {
 
 function sendData() {
     var xmlhttp = new XMLHttpRequest();   // should use fetch -- XHR is deprecated
-    xmlhttp.open("POST", "/data");
+    xmlhttp.open("POST", "/data2");
     xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xmlhttp.send(JSON.stringify(subjectData));
 }
