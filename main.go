@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
@@ -49,8 +50,6 @@ func dataPost(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(sjson)
-
 	cachedData = sjson
 
 	// // select all records in subject_data
@@ -85,10 +84,8 @@ func dataPost2(w http.ResponseWriter, r *http.Request) {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(sjson)
-
 	// connect to db
-	db, err := sqlx.Connect("postgres", "user=travisjones dbname=pd sslmode=disable")
+	db, err := sqlx.Connect("postgres", "postgres://dev:blahblah92@162.243.226.193/pd_ev_study1?sslmode=require")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -98,9 +95,13 @@ func dataPost2(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatalln(err)
 	}
+
+	// exit program
+	os.Exit(3)
 }
 
 func main() {
+	fmt.Println("Running... Go to http://localhost:3000")
 	http.Handle("/", http.FileServer(http.Dir("./")))
 	http.HandleFunc("/data", dataPost)
 	http.HandleFunc("/data2", dataPost2)

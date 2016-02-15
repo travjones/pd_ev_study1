@@ -35,6 +35,36 @@ body {
 	background-color: #19b878;
 }
 
+.stop-container {
+ 	position: relative;
+ 	height: 100vh;
+}
+
+.stop-btn {
+	background-color: #c0392b;
+	border-radius: 4px;
+	text-align: center;
+	height: 20vh;
+	width: 25vw;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.stop-btn span {
+	color: white;
+	font-size: 4em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.stop-btn:hover {
+	background-color: #c64c40;
+}
+
 .task-container {
 	text-align: center;
 	height: 100vh;

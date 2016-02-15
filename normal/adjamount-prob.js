@@ -65,7 +65,7 @@ function start() {
 
         // end task after no more delays
         if (delayCounter > taskData.probVal.length - 1) {
-            showResults();
+            stop();
             return; // end execution of start() before task() called again
         }
 
@@ -142,10 +142,14 @@ var task = (function() {
     delBtn.addEventListener("click", delayedChoice);
 });
 
-function showResults() {
-    var resultsHTML = "<div class=\"results-container\">\r\n  <div class=\"container u-vert-align\">\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\"><h3>Results<\/h3><\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\" id=\"results-k\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-a\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-graph\"><\/div>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>";
-    document.body.innerHTML = resultsHTML;
+function stop() {
+    var stopHTML = "<div class=\"stop-container\">\r\n  <div class=\"stop-btn\" id=\"stop-btn\"><span>STOP<span><\/div>\r\n<\/div>";
+    document.body.innerHTML = stopHTML;
+    var stopBtn = document.getElementById("stop-btn");
     calc();
+    stopBtn.addEventListener("click", function() {
+        window.location.href = "http://localhost:3000/ev";
+    })
 }
 
 function sendData() {
