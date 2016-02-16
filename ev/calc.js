@@ -11,15 +11,15 @@ function calc() {
 	var params = fminsearch(fun,[0.5,0.5],x,y);
 	console.log(params);
 
-	var googleGraphURL = "https://www.google.com/?gws_rd=ssl#q=" + taskData.delAmount + "%2F(1%2B" + params[0] + "x)%5E" + params[1];
-	var graphLink = document.createElement("a");
-	graphLink.setAttribute("href", googleGraphURL);
-	graphLink.setAttribute("target", "_blank");
-	graphLink.textContent = "See your function!";
+	// var googleGraphURL = "https://www.google.com/?gws_rd=ssl#q=" + taskData.delAmount + "%2F(1%2B" + params[0] + "x)%5E" + params[1];
+	// var graphLink = document.createElement("a");
+	// graphLink.setAttribute("href", googleGraphURL);
+	// graphLink.setAttribute("target", "_blank");
+	// graphLink.textContent = "See your function!";
 
-	document.getElementById("results-k").textContent = "k: " + parseFloat(params[0]).toFixed(3);
-	document.getElementById("results-a").textContent = "a: " + parseFloat(params[1]).toFixed(3);
-	document.getElementById("results-graph").appendChild(graphLink);
+	// document.getElementById("results-k").textContent = "k: " + parseFloat(params[0]).toFixed(3);
+	// document.getElementById("results-a").textContent = "a: " + parseFloat(params[1]).toFixed(3);
+	// document.getElementById("results-graph").appendChild(graphLink);
 
 	subjectData.kValue = params[0];
 	subjectData.aValue = params[1];

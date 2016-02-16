@@ -97,7 +97,7 @@ func dataPost2(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// exit program
-	os.Exit(3)
+	defer os.Exit(3)
 }
 
 func main() {

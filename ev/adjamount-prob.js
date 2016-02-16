@@ -69,7 +69,7 @@ function start() {
 
         // end task after no more delays
         if (delayCounter > taskData.probVal.length - 1) {
-            showResults();
+            thanks();
             return; // end execution of start() before task() called again
         }
 
@@ -148,9 +148,9 @@ var task = (function() {
     delBtn.addEventListener("click", delayedChoice);
 });
 
-function showResults() {
-    var resultsHTML = "<div class=\"results-container\">\r\n  <div class=\"container u-vert-align\">\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\"><h3>Results<\/h3><\/div>\r\n    <\/div>\r\n    <div class=\"row\">\r\n      <div class=\"u-full-width\" id=\"results-k\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-a\"><\/div>\r\n      <div class=\"u-full-width\" id=\"results-graph\"><\/div>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>";
-    document.body.innerHTML = resultsHTML;
+function thanks() {
+    var thanksHTML = "    <div class=\"start-container\">\r\n      <div class=\"container u-vert-align\">\r\n        <div class=\"row\">\r\n          <div class=\"twelve columns\">\r\n            <p style=\"text-align:center; font-size: 2em;\">\r\n              That\'s it. Thanks for your participation!\r\n            <\/p>\r\n          <\/div>\r\n        <\/div>\r\n      <\/div>\r\n    <\/div>";
+    document.body.innerHTML = thanksHTML;
     calc();
 }
 
